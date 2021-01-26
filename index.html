@@ -6,8 +6,18 @@
     </head>
     <body>
         <p>Browser agent: <span id="browserAgent"></span></p>
+        <p>Support Download: <span id="download"></span></p>
+        <a href="https://lookaside.facebook.com/developers/resources/?id=FacebookSDKs-iOS-4.40.0.zip">Download</a>
+
+        <p id="error" style="color: red;"></p>
         <script>
-            document.getElementById('browserAgent').text = navigator.userAgent.toLowerCase();
+            document.getElementById('browserAgent').innerHTML = navigator.userAgent.toLowerCase();
+
+            document.getElementById('download').innerHTML =  'download' in document.createElement('a');
+
+            window.onerror = function(message) {
+                document.getElementById('error').append(message + '\n');
+            }
         </script>
     </body>
 </html>
